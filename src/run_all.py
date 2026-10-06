@@ -3,7 +3,7 @@ import mlflow
 import pandas as pd
 
 from src.backtest import HORIZON, INITIAL_TRAIN, STEP, rolling_origin, score
-from src.models import ets, lightgbm, naive, prophet, sarima, seasonal_naive
+from src.models import ets, ets_prophet, lightgbm, naive, prophet, sarima, seasonal_naive
 
 MODELS = {
     "naive": naive,
@@ -13,6 +13,7 @@ MODELS = {
     "sarima_weekly": sarima,
     "prophet": prophet,
     "lightgbm": lightgbm,
+    "ets_prophet": ets_prophet,
 }
 
 

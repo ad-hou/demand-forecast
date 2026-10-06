@@ -6,7 +6,7 @@ from src.metrics import evaluate
 
 INITIAL_TRAIN = 730
 HORIZON = 7
-STEP = 28
+STEP = 10
 
 
 def rolling_origin(series, forecaster, initial=INITIAL_TRAIN, horizon=HORIZON, step=STEP):

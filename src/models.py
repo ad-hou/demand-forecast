@@ -92,3 +92,8 @@ def lightgbm(history, horizon):
         out.append(p)
         hist.append(p)
     return np.asarray(out)
+
+
+def ets_prophet(history, horizon):
+    """Moyenne simple de ETS et Prophet."""
+    return (ets(history, horizon) + prophet(history, horizon)) / 2
