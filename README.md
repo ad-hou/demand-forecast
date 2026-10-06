@@ -25,6 +25,10 @@ origines espacées de 10 jours (non multiple de 7, pour mélanger les jours de s
 Fourchette à 80 % : quantiles empiriques des résidus. Couverture mesurée hors
 échantillon (quantiles calculés sur la 1re moitié des fenêtres, test sur la 2e) : **85 %**.
 
+Intervalles de confiance (bootstrap sur les fenêtres, IC 95 %) : gain d'ETS + Prophet sur la baseline **26 %** (IC 95 % : 20 à 32). ETS + Prophet bat Prophet seul (-0,41 kWh, IC : -0,60 à -0,23) mais pas ETS (-0,06 kWh, IC : -0,28 à +0,14).
+
+Test final tenu à l'écart : sélection sur les 48 premières fenêtres, test sur les 23 dernières (avril à novembre 2010). Le modèle choisi reste ETS + Prophet, gain 32 % (IC 95 % : 21 à 42).
+
 ## Limites assumées
 
 - **Le gain solide est celui sur la baseline (environ 25 %).** L'écart entre ETS+Prophet et
@@ -34,8 +38,11 @@ Fourchette à 80 % : quantiles empiriques des résidus. Couverture mesurée hors
 - **Le bruit domine** : absences et usages ponctuels sont imprévisibles sans variables
   explicatives (météo, présence).
 - **Fenêtres chevauchantes** : les 71 fenêtres ne sont pas indépendantes.
-- La sélection du modèle et l'évaluation utilisent les mêmes fenêtres : l'erreur du
-  meilleur modèle est légèrement optimiste.
+- Le test final (23 dernières fenêtres) atténue le biais de sélection sans l'éliminer : les mêmes données ont servi à concevoir la liste de modèles, et le test ne couvre pas l'hiver.
+
+## Pistes écartées
+
+- **Température** (Open-Meteo, licence CC BY 4.0) : corrélation de -0,55 avec la consommation, mais elle vient de la saison (-0,87 sur la composante lente). Une fois la saison retirée, la corrélation des écarts est de -0,01 : la météo n'apporte rien de plus que la saisonnalité déjà modélisée. Non intégrée aux modèles.
 
 ## Méthode
 

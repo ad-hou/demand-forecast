@@ -98,7 +98,7 @@ with tab2:
     line.update_layout(template="plotly_white", height=380, xaxis_title="Horizon (jours)",
                        yaxis_title="MAE (kWh)", margin=dict(l=10, r=10, t=10, b=10))
     st.plotly_chart(line, width="stretch")
-    st.caption("L'\u00e9cart entre ETS+Prophet et ETS seul (0,04 kWh) n'est pas significatif "
+    st.caption("L'\u00e9cart entre ETS+Prophet et ETS seul (0,06 kWh, intervalle de confiance : -0,28 \u00e0 +0,14) n'est pas significatif "
                "sur %d fen\u00eatres : le r\u00e9sultat solide est le gain sur la baseline." % metrics["n_windows"])
 
 with tab3:
