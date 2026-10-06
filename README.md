@@ -43,6 +43,7 @@ Test final tenu à l'écart : sélection sur les 48 premières fenêtres, test s
 ## Pistes écartées
 
 - **Température** (Open-Meteo, licence CC BY 4.0) : corrélation de -0,55 avec la consommation, mais elle vient de la saison (-0,87 sur la composante lente). Une fois la saison retirée, la corrélation des écarts est de -0,01 : la météo n'apporte rien de plus que la saisonnalité déjà modélisée. Non intégrée aux modèles.
+- **Vacances scolaires** (zone C, dates des calendriers officiels de l'Éducation nationale saisies dans `src/calendar_fr.py`) : ajoutées comme variable explicative à Prophet, LightGBM et ETS + Prophet, sur les mêmes 71 fenêtres. Écart de MAE : -0,025 kWh/jour (Prophet), -0,12 (LightGBM), -0,02 (ETS + Prophet), tous avec un IC 95 % qui contient 0 (ETS + Prophet : -0,07 à +0,03). Les gains se concentrent sur les fenêtres qui touchent des vacances (-0,04 à -0,06 kWh), mais ne sont pas démontrés ; sur les 23 dernières fenêtres, LightGBM se dégrade (+0,25). Non retenues. Reproduire : `python -m src.run_vacances`.
 
 ## Méthode
 
