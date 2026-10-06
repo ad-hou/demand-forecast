@@ -5,3 +5,4 @@ data/raw/
 *.zip
 mlruns/
 exploration.html
+mlflow.db
