@@ -53,3 +53,14 @@ def test_history_gap_is_filled_without_nan():
 
     rolling_origin(s, spy)
     assert max(seen) == 0
+
+
+def test_lightgbm_features_use_only_past():
+    from src.models import _features
+    values = np.arange(1.0, 101.0)
+    date = pd.Timestamp("2008-06-15")
+    base = _features(values, date)
+    values2 = values.copy()
+    values2[-1] += 1000
+    assert _features(values2, date) != base
+    assert base["lag_1"] == values[-1]
