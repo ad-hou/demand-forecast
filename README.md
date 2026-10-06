@@ -3,7 +3,7 @@
 Prévision à 7 jours de la consommation journalière (kWh) d'un foyer, avec fourchette
 d'incertitude, comparaison de 8 modèles et suivi des expériences (MLflow).
 
-**Démo :** _à compléter après déploiement_
+**Démo :** https://demand-forecast-cxcizfvxvwt4ydrvwhkswp.streamlit.app/
 
 ![Prévision](docs/prevision.png)
 ![Comparaison](docs/comparaison.png)
